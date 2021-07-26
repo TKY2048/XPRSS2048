@@ -7,7 +7,7 @@ import app from '../app.js';
 import debugLib from 'debug';
 import http from 'http';
 
-const debug = debugLib('express:server');
+const debug = debugLib('express:src');
 
 /**
  * Get port from environment and store in Express.
@@ -16,7 +16,7 @@ const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTP src.
  */
 const server = http.createServer(app);
 
@@ -48,7 +48,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Event listener for HTTP src "error" event.
  */
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -75,7 +75,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * Event listener for HTTP src "listening" event.
  */
 function onListening() {
   const addr = server.address();
