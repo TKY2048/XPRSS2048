@@ -4,21 +4,27 @@ import {User} from '../../db/entities/user.entity';
 /**
  *
  */
-export default class UserService {
+class UserService {
   /**
    * @param user - user object
    */
-  SignUp(user) : Promise<any> {
-    return createConnection().then(async (connection) => {
+  signUp(user) {
+    createConnection().then(async (connection) => {
+      await connection.synchronize();
+
+      const repository = connection.getRepository(User);
+
       const newUser = new User();
 
       newUser.username = user.username;
       newUser.password = user.password;
-      newUser.roles = user.roles;
+      newUser.roles = 'tenant';
 
-      await connection.manager.save(newUser);
+      await repository.save(newUser);
     }).catch((e) => {
       console.error(e);
     });
   }
 }
+
+export default new UserService();

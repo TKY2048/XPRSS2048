@@ -1,9 +1,9 @@
-export const signUpController = (req, res) => {
+import UserService from '../../services/user/user.service';
+
+export const signUpController = async (req, res) => {
   const {body} = req;
 
-  console.log(body);
+  await UserService.signUp(body);
 
-  res.send({
-    ok: true,
-  });
+  res.send('pitoooooo');
 };

@@ -8,20 +8,17 @@ export interface UserEntityI {
     roles: 'tenant' | 'landlord'
 }
 
-/**
- * @description - Application User schema
- */
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn({type: 'int'})
+    @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'char varying'})
+    @Column({type: 'varchar'})
     username: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     password: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     roles: string;
 }

@@ -1,4 +1,5 @@
 import express from 'express';
+import 'reflect-metadata';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
